@@ -1,5 +1,7 @@
 # Eduk8me Countdown Clock
 
+![countdown-example.jpg](https://files.eduk8.me/2024/countdown-example-1024x.jpg)
+
 This was written with the help of ChatGPT to bring in a countdown clock into [OBS](https://obsproject.com/) as a browser source. We were using a local script that wrote to a text file, but that wasn't very portable. The Eduk8me Countdown clock is a one web app written in html with Javascript that can run anywhere (even locally) or from [Eduk8.me](https://eduk8.me/countdown.html).
 
 When using it in OBS, a good starting size for the browser source is 1920x300. The size can be adjusted as necessary to fit.
