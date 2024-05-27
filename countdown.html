@@ -72,31 +72,32 @@
                 }
 
                 if (timeRemaining <= 0) {
-                    countdownElement.textContent = format === 'long' ? "0 hours, 0 minutes, 0 seconds" : "00:00:00";
-                } else {
-                    let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
-                    let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                    let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+                    countdownElement.textContent = "0 seconds";
+                    return;
+                }
 
-                    if (format === 'long') {
-                        let countdownText = '';
-                        if (hours > 0) {
-                            const hourText = hours === 1 ? 'hour' : 'hours';
-                            countdownText += `${hours} ${hourText}, `;
-                        }
-                        if (minutes > 0 || hours > 0) {
-                            const minuteText = minutes === 1 ? 'minute' : 'minutes';
-                            countdownText += `${minutes} ${minuteText}, `;
-                        }
-                        const secondText = seconds === 1 ? 'second' : 'seconds';
-                        countdownText += `${seconds} ${secondText}`;
-                        countdownElement.textContent = countdownText;
-                    } else {
-                        hours = String(hours).padStart(2, '0');
-                        minutes = String(minutes).padStart(2, '0');
-                        seconds = String(seconds).padStart(2, '0');
-                        countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
+                let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+                let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                if (format === 'long') {
+                    let countdownText = '';
+                    if (hours > 0) {
+                        const hourText = hours === 1 ? 'hour' : 'hours';
+                        countdownText += `${hours} ${hourText}, `;
                     }
+                    if (minutes > 0 || hours > 0) {
+                        const minuteText = minutes === 1 ? 'minute' : 'minutes';
+                        countdownText += `${minutes} ${minuteText}, `;
+                    }
+                    const secondText = seconds === 1 ? 'second' : 'seconds';
+                    countdownText += `${seconds} ${secondText}`;
+                    countdownElement.textContent = countdownText;
+                } else {
+                    hours = String(hours).padStart(2, '0');
+                    minutes = String(minutes).padStart(2, '0');
+                    seconds = String(seconds).padStart(2, '0');
+                    countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
                 }
             }
 
